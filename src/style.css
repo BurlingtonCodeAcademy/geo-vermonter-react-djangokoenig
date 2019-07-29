@@ -1,8 +1,35 @@
-#mapid {
-  width: 200px;
-  height: 200px;
+.window-container {
+  min-width: 750px;
 }
+#mapid
 
 h1 {
-  font-family: 'Courier New', Courier, monospace
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+button {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 14px;
+}
+
+#header-buttons {
+  height: 24px;
+  padding: 30px;
+}
+
+.header-container {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  background-color: rgb(43, 226, 104);
+}
+
+#compass {
+  display: flex;
+  align-self: center;
+}
+
+/* #map {
+  height: 200px;
+} */
