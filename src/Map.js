@@ -1,15 +1,15 @@
 import React from "react";
 import L from "leaflet";
 import borderdata from "./border";
-
+import countydata from "./county";
 export default class Map extends React.Component {
   componentDidMount() {
     this.map = L.map("map", {
       center: this.props.markerPosition,
       zoom: 18,
       zoomControl: false
-    });
-
+    }); 
+    
     L.tileLayer(
       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
       {
@@ -20,9 +20,11 @@ export default class Map extends React.Component {
     ).addTo(this.map);
     this.marker = L.marker(this.props.markerPosition);
     this.borderdata = L.geoJSON(borderdata);
+    this.countydata = L.geoJSON(countydata);
     console.log(this.borderdata.getBounds());
     this.marker.addTo(this.map);
     this.borderdata.addTo(this.map);
+    this.countydata.addTo(this.map);
   }
 
   componentDidUpdate({ markerPosition }) {
@@ -34,6 +36,6 @@ export default class Map extends React.Component {
   }
 
   render() {
-    return <div style={{ height: "650px", width: "50%", margin: "auto" }} id="map" />;
+    return <div style={{ height: "650px", width: "75%", margin: "auto" }} id="map" />;
   }
 }

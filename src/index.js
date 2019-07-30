@@ -6,7 +6,7 @@ import "./style.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       startPosition: {
         lat: 44.4759,
@@ -16,7 +16,7 @@ class App extends React.Component {
     };
     this.handleMove = this.handleMove.bind(this);
   }
-
+  
   handleMove(direction) {
     let newLat;
     if (direction === "north") {
@@ -24,7 +24,7 @@ class App extends React.Component {
     } else if (direction === "south") {
       newLat = this.state.startPosition.lat - 0.0001;
     }
-
+    
     this.setState({
       startPosition: {
         lat: newLat,
@@ -33,6 +33,8 @@ class App extends React.Component {
     });
   }
 
+  // setLatLng(<LatLng> latlng) Changes the marker position to the given point.
+  
   render() {
     return (
       <div>
@@ -40,19 +42,19 @@ class App extends React.Component {
           <button
             onClick={() => this.handleMove("north")}
             style={{ fontSize: "30px" }}
-          >
+            >
             North
           </button>
           <button
             onClick={() => this.handleMove("south")}
             style={{ fontSize: "30px" }}
-          >
+            >
             South
           </button>
         </div>
         <Map
           markerPosition={this.state.startPosition}
-        />
+          />
       </div>
     );
   }
